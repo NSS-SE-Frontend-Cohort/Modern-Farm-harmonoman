@@ -8,34 +8,51 @@ import { createSoybean } from "./seeds/soybean.js";
 import { createSunflower } from "./seeds/sunflower.js";
 import { createWheat } from "./seeds/wheat.js";
 import { addPlant, usePlants } from "./field.js";
+import { plantSeeds } from "./tractor.js";
 
 
 
 const yearlyPlan = createPlan();
+console.log("yearlyPlan");
+console.log(yearlyPlan);
+plantSeeds(yearlyPlan);
+const plants = usePlants();
+console.log("plants");
+console.log(plants);
 
-// creating seed objects
-const cornSeed = createCorn("corn", 180, 6);
-console.log(cornSeed);
+// // CREATING SEED OBJECTS
+// const cornSeed = createCorn("corn", 180, 6);
+// console.log("cornSeed");
+// console.log(cornSeed);
 
-const asparagusSeed = createAsparagus("asparagus", 24, 4);
-console.log(asparagusSeed);
+// const asparagusSeed = createAsparagus("asparagus", 24, 4);
+// console.log("asparagusSeed");
+// console.log(asparagusSeed);
 
-const potatoSeed = createPotato("potato", 32, 2);
-console.log(potatoSeed);
+// const potatoSeed = createPotato("potato", 32, 2);
+// console.log("potatoSeed");
+// console.log(potatoSeed);
 
-const soybeanSeed = createSoybean("soybean", 20, 4);
-console.log(soybeanSeed);
+// const soybeanSeed = createSoybean("soybean", 20, 4);
+// console.log("soybeanSeed");
+// console.log(soybeanSeed);
 
-const sunflowerSeed = createSunflower("sunflower", 380, 3);
-console.log(sunflowerSeed);
+// const sunflowerSeed = createSunflower("sunflower", 380, 3);
+// console.log("sunflowerSeed");
+// console.log(sunflowerSeed);
 
-const wheatSeed = createWheat("wheat", 380, 3);
-console.log(wheatSeed);
+// const wheatSeed = createWheat("wheat", 380, 3);
+// console.log("wheatSeed");
+// console.log(wheatSeed);
 
-// adding plants to the fieldPlants array
-addPlant(cornSeed);
-addPlant(asparagusSeed);
+// // ADDING PLANTS TO THE fieldPlants ARRAY
+// // addPlant(cornSeed);
+// // addPlant(asparagusSeed);
+// if (asparagusSeed.type === "asparagus") {
+//     addPlant(asparagusSeed);
+// }
 
-// returning fieldPlants array
-const growingPlants = usePlants();
-console.log(growingPlants);
+// // RETURNING fieldPlants ARRAY
+// const growingPlants = usePlants();
+// console.log("growingPlants");
+// console.log(growingPlants);
