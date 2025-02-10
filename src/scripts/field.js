@@ -1,13 +1,14 @@
-const fieldPlants = [];
+const growingPlants = [];
 
 export const addPlant = (seed) => {
+    // check to see if seed is a corn array or not
     if (Array.isArray(seed)) {
-        seed.forEach(singleSeed => fieldPlants.push(singleSeed));
+        seed.forEach(singleSeed => growingPlants.push(singleSeed));
     } else {
-        fieldPlants.push(seed);
+        growingPlants.push(seed);
     }
 }
 
 export const usePlants = () => {
-    return fieldPlants;
+    return growingPlants;
 }
