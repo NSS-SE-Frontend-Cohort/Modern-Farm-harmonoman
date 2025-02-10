@@ -9,16 +9,25 @@ import { createSunflower } from "./seeds/sunflower.js";
 import { createWheat } from "./seeds/wheat.js";
 import { addPlant, usePlants } from "./field.js";
 import { plantSeeds } from "./tractor.js";
+import { harvestPlants } from "./harvester.js"
 
 
 
 const yearlyPlan = createPlan();
 console.log("yearlyPlan");
 console.log(yearlyPlan);
+
 plantSeeds(yearlyPlan);
-const plants = usePlants();
-console.log("plants");
-console.log(plants);
+
+const growingPlants = usePlants();
+console.log("growingPlants");
+console.log(growingPlants);
+
+const harvestedSeeds = harvestPlants(growingPlants);
+console.log("harvestedSeeds");
+console.log(harvestedSeeds);
+
+
 
 // // CREATING SEED OBJECTS
 // const cornSeed = createCorn("corn", 180, 6);
@@ -41,7 +50,7 @@ console.log(plants);
 // console.log("sunflowerSeed");
 // console.log(sunflowerSeed);
 
-// const wheatSeed = createWheat("wheat", 380, 3);
+// const wheatSeed = createWheat("wheat", 230, 6);
 // console.log("wheatSeed");
 // console.log(wheatSeed);
 
@@ -52,7 +61,7 @@ console.log(plants);
 //     addPlant(asparagusSeed);
 // }
 
-// // RETURNING fieldPlants ARRAY
+// // // RETURNING fieldPlants ARRAY
 // const growingPlants = usePlants();
 // console.log("growingPlants");
 // console.log(growingPlants);
