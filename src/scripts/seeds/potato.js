@@ -1,5 +1,3 @@
-export const createPotato = (type, height, output) => ({
-    type,
-    height,
-    output
+export const createPotato = () => ({ 
+    type: "Potato", height: 32, output: 2 
 });

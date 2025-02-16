@@ -1,7 +1,7 @@
-export const createCorn = (type, height, output) => {
+export const createCorn = () => {
     const cornArray = [ 
-        { type, height, output },
-        { type, height, output }
+        { type: "Corn", height: 180, output: 6 },
+        { type: "Corn", height: 180, output: 6 }
     ];
 
     return cornArray;
