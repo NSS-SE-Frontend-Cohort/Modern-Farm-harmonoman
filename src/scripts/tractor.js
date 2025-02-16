@@ -10,22 +10,22 @@ export const plantSeeds = (yearlyPlan) => {
     yearlyPlan.forEach(row => {
         row.forEach(plant => {
             if (plant === "Corn") {
-                addPlant(createCorn("Corn", 180, 6));
+                addPlant(createCorn());
             }
             if (plant === "Asparagus") {
-                addPlant(createAsparagus("Asparagus", 24, 4));
+                addPlant(createAsparagus());
             }
             if (plant === "Potato") {
-                addPlant(createPotato("Potato", 32, 2));
+                addPlant(createPotato());
             }
             if (plant === "Soybean") {
-                addPlant(createSoybean("Soybean", 20, 4));
+                addPlant(createSoybean());
             }
             if (plant === "Sunflower") {
-                addPlant(createSunflower("Sunflower", 380, 3));
+                addPlant(createSunflower());
             }
             if (plant === "Wheat") {
-                addPlant(createWheat("Wheat", 230, 6));
+                addPlant(createWheat());
             }
         })
     });

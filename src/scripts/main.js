@@ -10,6 +10,7 @@ import { createWheat } from "./seeds/wheat.js";
 import { addPlant, usePlants } from "./field.js";
 import { plantSeeds } from "./tractor.js";
 import { harvestPlants } from "./harvester.js"
+import { catalog } from "./catalog.js";
 
 
 
@@ -23,11 +24,21 @@ const growingPlants = usePlants();
 console.log("growingPlants");
 console.log(growingPlants);
 
-const harvestedSeeds = harvestPlants(growingPlants);
-console.log("harvestedSeeds");
-console.log(harvestedSeeds);
+const harvestedPlants = harvestPlants(growingPlants);
+console.log("harvestedPlants");
+console.log(harvestedPlants);
 
+const harvestedFoodHTML = catalog(harvestedPlants);
+console.log(harvestedFoodHTML);
+console.log(document.querySelector(".container"));
 
+const containerElement = document.querySelector(".container");
+
+if (containerElement) {
+    containerElement.innerHTML = harvestedFoodHTML;
+} else {
+    console.error("Element with class 'container' not found!");
+}
 
 // // CREATING SEED OBJECTS
 // const cornSeed = createCorn("corn", 180, 6);
