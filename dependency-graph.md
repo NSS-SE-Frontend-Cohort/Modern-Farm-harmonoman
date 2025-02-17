@@ -10,5 +10,6 @@ graph TD;
   C --> I[Wheat];
   C --> J[Field];
   J --> K[Harvester];
+  K --> L[Catalog];
 
 ```

@@ -23,9 +23,7 @@ sequenceDiagram
     participant Field
     Main->>Tractor: Invoke plantSeeds() passing yearlyPlan as an arguement value
 
-    loop Conditionally creates the corresponding plant object
-    
-        
+    loop Conditionally creates the corresponding plant object        
         Tractor->>Corn: invoke createCorn() when plant object equals "Corn"
         activate Corn
         Corn-->>Tractor: returns a new Corn object
@@ -57,7 +55,6 @@ sequenceDiagram
         deactivate Wheat
 
         Tractor->>Field: Add the plant object to the growingPlants array
-
     end
 
     Main->>Field: Invoke usePlants() to get growingPlants array
@@ -67,15 +64,26 @@ sequenceDiagram
 
     note right of Main: Display growingPlants array
 
+    participant Harvester
     Main->>Harvester: Invoke harvestPlants() passing growingPlants array as an arguement value
 
     loop 
-
         Harvester->>Harvester: Adds the number of plant objects to harvestedSeeds array according to their output value
     end
 
-    Harvester->>Main: harvestedSeeds array of plant objects to be used as seeds
+    Harvester-->>Main: harvestedSeeds array of plant objects to be used as seeds
     note right of Main: Display harvestedSeeds array
+
+    participant Catalog
+    Main->>Catalog: invoke catalog() function to create html for each harvested plant
+
+    loop
+        Catalog->>Catalog: Iterates over the harvestedFood array and inserts the plant type into html
+    end 
+
+    Catalog-->>Main: string of html to be assigned to the DOM
+
+    note right of Main: Plants are displayed on the DOM
 
    
 
