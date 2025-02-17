@@ -11,6 +11,7 @@ import { addPlant, usePlants } from "./field.js";
 import { plantSeeds } from "./tractor.js";
 import { harvestPlants } from "./harvester.js"
 import { catalog } from "./catalog.js";
+import { alphabetize } from "./alphabetize.js";
 
 
 
@@ -26,6 +27,8 @@ console.log(growingPlants);
 
 const harvestedPlants = harvestPlants(growingPlants);
 console.log("harvestedPlants");
+// console.log(harvestedPlants);
+alphabetize(harvestedPlants);
 console.log(harvestedPlants);
 
 const harvestedFoodHTML = catalog(harvestedPlants);
