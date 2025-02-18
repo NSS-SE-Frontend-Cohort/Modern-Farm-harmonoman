@@ -31,7 +31,7 @@ console.log(growingPlants);
 // HARVEST THE PLANTS
 const harvestedPlants = harvestPlants(growingPlants);
 console.log("harvestedPlants");
-// console.log(harvestedPlants);
+console.log(harvestedPlants);
 
 
 // SELF ASSESSMENT 1 SECTION 
