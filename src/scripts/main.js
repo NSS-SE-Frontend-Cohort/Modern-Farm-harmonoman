@@ -35,14 +35,14 @@ console.log(harvestedPlants);
 
 
 // SELF ASSESSMENT 1 SECTION 
-const harvestedFoodHTML = catalog(harvestedPlants);
-console.log(harvestedFoodHTML);
+const harvestedPlantsHTML = catalog(harvestedPlants);
+console.log(harvestedPlantsHTML);
 console.log(document.querySelector(".container"));
 
 const containerElement = document.querySelector(".container");
 
 if (containerElement) {
-    containerElement.innerHTML = harvestedFoodHTML;
+    containerElement.innerHTML = harvestedPlantsHTML;
 } else {
     console.error("Element with class 'container' not found!");
 }
