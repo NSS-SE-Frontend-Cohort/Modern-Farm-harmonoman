@@ -2,88 +2,82 @@
 
 ```mermaid
 sequenceDiagram
-    participant Main
-    participant Plan
-    Main->>Plan: Invoke createPlan() to determine what plants are planted
+    participant main
+    participant plan
+        main->>plan: createPlan()
+            activate plan
 
-    loop 
-        Plan->>Plan: invoke crop() until an array of 3 arrays containing plant strings is populated
-    end
+            loop 3 times 
+                loop 6 times
+                    plan->>plan: add plant to row
+                end 
+                plan->>plan: add row to plan
+            end
 
-    Plan-->>Main: plan array of arrays containing which plants to plant
-    note right of Main: Display array of plant arrays
+        plan-->>main: plan array
+            deactivate plan
 
-    participant Tractor
-    participant Corn
-    participant Asparagus
-    participant Potato
-    participant Soybean
-    participant Sunflower
-    participant Wheat
-    participant Field
-    Main->>Tractor: Invoke plantSeeds() passing yearlyPlan as an arguement value
+            note right of main: Display plan array
 
-    loop Conditionally creates the corresponding plant object        
-        Tractor->>Corn: invoke createCorn() when plant object equals "Corn"
-        activate Corn
-        Corn-->>Tractor: returns a new Corn object
-        deactivate Corn
 
-        Tractor->>Asparagus: invoke createAsparagus() when plant object equals "Asparagus"
-        activate Asparagus
-        Asparagus-->>Tractor: returns a new Asparagus object
-        deactivate Asparagus
+    participant tractor
+    participant seedModule
+    participant field
+        main->>tractor: plantSeeds(plan);
 
-        Tractor->>Potato: invoke createPotato() when plant object equals "Potato"
-        activate Potato
-        Potato-->>Tractor: returns a new Potato object
-        deactivate Potato
+            loop for each row in plan      
+                loop for each plant type in row 
+                    tractor->>seedModule: create*()
+                    activate seedModule
+                    seedModule-->>tractor: plant object
+                    deactivate seedModule
 
-        Tractor->>Soybean: invoke createSoybean() when plant object equals "Soybean"
-        activate Soybean
-        Soybean-->>Tractor: returns a new Soybean object
-        deactivate Soybean
+                    tractor->>field: addPlant()
+                    activate field
+                    field->>field: Push to growingPlants array
+                    deactivate field
+                end
+                
+            end
 
-        Tractor->>Sunflower: invoke createSunflower() when plant object equals "Sunflower"
-        activate Sunflower
-        Sunflower-->>Tractor: returns a new Sunflower object
-        deactivate Sunflower
+        main->>field: usePlants()
+            activate field
+        field-->>main: growingPlants array
+            deactivate field
 
-        Tractor->>Wheat: invoke createWheat() when plant object equals "Wheat"
-        activate Wheat
-        Wheat-->>Tractor: returns a new Wheat object
-        deactivate Wheat
+            note right of main: Display growingPlants array
 
-        Tractor->>Field: Add the plant object to the growingPlants array
-    end
 
-    Main->>Field: Invoke usePlants() to get growingPlants array
-    activate Field
-    Field-->>Main: growingPlants array containing plant objects
-    deactivate Field
+    participant harvester
+        main->>harvester: harvestPlants(growingPlants)
+            activate harvester
 
-    note right of Main: Display growingPlants array
+            loop for each plant in growingPlants array
+                harvester->>harvester: Add plants to harvestedPlants array
+            end
 
-    participant Harvester
-    Main->>Harvester: Invoke harvestPlants() passing growingPlants array as an arguement value
+        harvester-->>main: harvestedPlants array
+            deactivate harvester
+            
+            note right of main: Display harvestedPlants array
 
-    loop 
-        Harvester->>Harvester: Adds the number of plant objects to harvestedSeeds array according to their output value
-    end
 
-    Harvester-->>Main: harvestedSeeds array of plant objects to be used as seeds
-    note right of Main: Display harvestedSeeds array
+    participant catalog
+        main->>catalog: catalog(harvestedPlants)
+            activate catalog
 
-    participant Catalog
-    Main->>Catalog: invoke catalog() function to create html for each harvested plant
+            loop for each plant in harvestedPlants array
+                catalog->>catalog: Creates plant html
+            end 
 
-    loop
-        Catalog->>Catalog: Iterates over the harvestedFood array and inserts the plant type into html
-    end 
+        catalog-->>main: plant html string
+            deactivate catalog
+            
+            note right of main: plant html string is passed to the DOM
 
-    Catalog-->>Main: string of html to be assigned to the DOM
 
-    note right of Main: Plants are displayed on the DOM
+    participant DOM
+        main->>DOM: Display plant
 
    
 
