@@ -35,17 +35,17 @@ console.log(harvestedPlants);
 
 
 // SELF ASSESSMENT 1 SECTION 
-// const harvestedFoodHTML = catalog(harvestedPlants);
-// console.log(harvestedFoodHTML);
-// console.log(document.querySelector(".container"));
+const harvestedFoodHTML = catalog(harvestedPlants);
+console.log(harvestedFoodHTML);
+console.log(document.querySelector(".container"));
 
-// const containerElement = document.querySelector(".container");
+const containerElement = document.querySelector(".container");
 
-// if (containerElement) {
-//     containerElement.innerHTML = harvestedFoodHTML;
-// } else {
-//     console.error("Element with class 'container' not found!");
-// }
+if (containerElement) {
+    containerElement.innerHTML = harvestedFoodHTML;
+} else {
+    console.error("Element with class 'container' not found!");
+}
 
 // OPTIONAL CHALLENGES
 // ORDERING THE HARVEST
@@ -53,19 +53,19 @@ alphabetize(harvestedPlants);
 console.log(harvestedPlants);
 
 // DISPLAY ONCE WITH QUANTITY
-const totals = plantTotals(harvestedPlants);
-console.log("totals");
-console.log(totals);
+// const totals = plantTotals(harvestedPlants);
+// console.log("totals");
+// console.log(totals);
 
-console.log(document.querySelector(".container"));
+// console.log(document.querySelector(".container"));
 
-const containerElement = document.querySelector(".container");
+// const containerElement = document.querySelector(".container");
 
-if (containerElement) {
-    containerElement.innerHTML = totals;
-} else {
-    console.error("Element with class 'container' not found!");
-}
+// if (containerElement) {
+//     containerElement.innerHTML = totals;
+// } else {
+//     console.error("Element with class 'container' not found!");
+// }
 
 // // CREATING SEED OBJECTS
 // const cornSeed = createCorn();

@@ -1,7 +1,7 @@
 export const catalog = (harvestedFood) => {
-    const harvestedFoodHTML = harvestedFood.map(plant => {
+    const harvestedFoodHTML = harvestedFood.map(({ emoji }) => {
         return `
-            <section class="plant">${plant.type}</section>
+            <section class="plant">${emoji}</section>
         `;
 
     }).join("");

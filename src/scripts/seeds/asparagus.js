@@ -1,3 +1,3 @@
 export const createAsparagus = () => ({
-    type: "Asparagus", height: 24, output: 4
+    type: "Asparagus", emoji: "🥦", height: 24, output: 4
 });
