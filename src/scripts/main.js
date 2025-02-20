@@ -13,30 +13,31 @@ import { harvestPlants } from "./harvester.js"
 import { catalog } from "./catalog.js";
 import { alphabetize } from "./alphabetize.js";
 import { plantTotals } from "./plantTotals.js";
+import { barn } from "./storageBarn.js";
 
 
 // CREATE A PLAN
 const yearlyPlan = createPlan();
-console.log("yearlyPlan");
-console.log(yearlyPlan);
+console.log("yearlyPlan: ", yearlyPlan);
 
 // PLANT THE SEEDS
 plantSeeds(yearlyPlan);
 
 // USE THE PLANTS
 const growingPlants = usePlants();
-console.log("growingPlants");
-console.log(growingPlants);
+console.log("growingPlants: ", growingPlants);
+
+// Check if barn is empty before harvesting
+console.log("isEmpty: " + barn.isEmpty());
 
 // HARVEST THE PLANTS
 const harvestedPlants = harvestPlants(growingPlants);
-console.log("harvestedPlants");
-console.log(harvestedPlants);
+console.log("harvestedPlants: ", harvestedPlants);
 
 
 // SELF ASSESSMENT 1 SECTION 
 const harvestedPlantsHTML = catalog(harvestedPlants);
-console.log(harvestedPlantsHTML);
+// console.log(harvestedPlantsHTML);
 console.log(document.querySelector(".container"));
 
 const containerElement = document.querySelector(".container");
@@ -47,15 +48,16 @@ if (containerElement) {
     console.error("Element with class 'container' not found!");
 }
 
+
 // OPTIONAL CHALLENGES
 // ORDERING THE HARVEST
 alphabetize(harvestedPlants);
-console.log(harvestedPlants);
+console.log("harvestedPlants: ", harvestedPlants);
 
 // DISPLAY ONCE WITH QUANTITY
+// When using this code the SELF ASSESSMENT 1 SECTION needs to be commented out
 // const totals = plantTotals(harvestedPlants);
-// console.log("totals");
-// console.log(totals);
+// console.log("totals", totals);
 
 // console.log(document.querySelector(".container"));
 
@@ -67,39 +69,30 @@ console.log(harvestedPlants);
 //     console.error("Element with class 'container' not found!");
 // }
 
-// // CREATING SEED OBJECTS
-// const cornSeed = createCorn();
-// console.log("cornSeed");
-// console.log(cornSeed);
 
-// const asparagusSeed = createAsparagus();
-// console.log("asparagusSeed");
-// console.log(asparagusSeed);
+// STORAGE BARN STACK
+// NOTE: I invoked the barn object inside of harvester.js.  
+//       that was my understanding according to the instructions.  Not sure if 
+//       that was the desired implementation.
+//       as to them being added to the barn "immediately" after being harvested.
+//       Also, I added the id attribute to plants added to the barn from main.js.
+const storageBarn1 = barn.contents();
+console.log("storageBarn1: ", storageBarn1); 
 
-// const potatoSeed = createPotato();
-// console.log("potatoSeed");
-// console.log(potatoSeed);
+const addedPlant = barn.push({ ...createAsparagus(), id: storageBarn1.length + 1 });
+console.log("addedPlant: ", addedPlant);
 
-// const soybeanSeed = createSoybean();
-// console.log("soybeanSeed");
-// console.log(soybeanSeed);
+const storageBarn2 = barn.contents();
+console.log("storageBarn2: ", storageBarn2);
 
-// const sunflowerSeed = createSunflower();
-// console.log("sunflowerSeed");
-// console.log(sunflowerSeed);
+console.log("peek: " + barn.peek());
 
-// const wheatSeed = createWheat();
-// console.log("wheatSeed");
-// console.log(wheatSeed);
+const removedPlant = barn.pop();
+console.log("removedPlant: ", removedPlant);
 
-// // ADDING PLANTS TO THE fieldPlants ARRAY
-// // addPlant(cornSeed);
-// // addPlant(asparagusSeed);
-// if (asparagusSeed.type === "asparagus") {
-//     addPlant(asparagusSeed);
-// }
+console.log("peek: " + barn.peek());
 
-// // // RETURNING fieldPlants ARRAY
-// const growingPlants = usePlants();
-// console.log("growingPlants");
-// console.log(growingPlants);
+console.log("isEmpty: " + barn.isEmpty());
+
+const storageBarn3 = barn.contents();
+console.log("storageBarn3: ", storageBarn3);
