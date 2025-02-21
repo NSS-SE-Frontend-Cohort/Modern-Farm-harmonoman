@@ -6,9 +6,7 @@ export const barn = (() => {
             storageBarn.push(crop);
             return crop;
         },
-        pop: () => {
-            return storageBarn.pop();
-        },
+        pop: () => storageBarn.pop(),
         peek: () => {
             if (storageBarn.length === 0) return null;
             return storageBarn[storageBarn.length - 1].type;

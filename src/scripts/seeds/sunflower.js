@@ -1,3 +1,3 @@
 export const createSunflower = () => ({ 
-    type: "Sunflower", emoji: "🌻", height: 380, output: 3 
+    type: "Sunflower", emoji: "🌻", product: "Sunflower Oil", height: 380, output: 3 
 });
